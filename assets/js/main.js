@@ -22,6 +22,7 @@ function setMetaUrl() {
     .querySelector("meta[property='og:url']")
     .setAttribute("content", `${window.location.href}`);
 }
+// untuk mengecek divice
 const getUA = () => {
   let device = "Unknown";
   const ua = {
@@ -42,9 +43,13 @@ const getUA = () => {
   Object.keys(ua).map((v) => navigator.userAgent.match(ua[v]) && (device = v));
   return device;
 };
+// untuk mendapatkan negara
 function getCountry() {
   $.getJSON("https://ipapi.co/json/", function (data) {
     console.log(data.country_name);
   });
 }
+// untuk ngejek sumber pengunjung(belum selesai)
 console.log(document.referrer);
+
+// semuanya belum di proses, tunggu page 2 selesai baru bisa sesuai keteria yang di tentukan
