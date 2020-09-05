@@ -17,6 +17,9 @@ body {
   .img-new-price {
     width: 100%;
   }
+  .image-hearder > .box > img {
+    max-width: 80%;
+  }
 }
 
 .boxheader {
@@ -27,7 +30,6 @@ body {
   max-width: 80%;
   min-width: 90%;
   text-align: center;
-  /* background-color: brown; */
 }
 .header > .title {
   color: #ff782f;
@@ -48,26 +50,22 @@ body {
 .image-hearder {
   display: flex;
   justify-content: center;
-  background-color: #ebebeb;
+  background-color: #dbdbdb;
 }
-.image-hearder > img {
-  max-width: 80%;
+.image-hearder > .box > img {
+  /* max-width: 80%; */
 }
 .image-clip-top {
   height: 110px;
-  clip-path: polygon(
-    34% 98%,
-    64% 98%,
-    86% 70%,
-    100% 30%,
-    100% 99%,
-    0 100%,
-    0 30%,
-    12% 69%
-  );
-
-  /* background-color: #ebebeb; */
-  background-color: red;
+  background-color: #dbdbdb;
+}
+.image-clip-bottom {
+  position: relative;
+  top: -3px;
+}
+.image-clip-bottom > svg {
+  transform: rotate(180deg);
+  background-color: #dbdbdb;
 }
 .box-benefit-item {
   display: flex;
@@ -108,7 +106,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #ebebeb;
+  background-color: #dbdbdb;
   padding: 60px;
   margin-bottom: 100px;
 }
@@ -121,6 +119,9 @@ body {
 }
 .wrepper-description > .box-text > p {
   text-align: center;
+}
+.description-top {
+  background-color: #dbdbdb;
 }
 /* product */
 .wrepper-about-product {

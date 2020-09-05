@@ -1,5 +1,4 @@
 var btn = $("#btntotop");
-
 $(window).scroll(function () {
   if ($(window).scrollTop() > 300) {
     btn.addClass("show");
@@ -7,7 +6,6 @@ $(window).scroll(function () {
     btn.removeClass("show");
   }
 });
-
 btn.on("click", function (e) {
   e.preventDefault();
   $("html, body").animate({ scrollTop: 0 }, "300");
@@ -51,5 +49,4 @@ function getCountry() {
 }
 // untuk ngejek sumber pengunjung(belum selesai)
 console.log(document.referrer);
-
 // semuanya belum di proses, tunggu page 2 selesai baru bisa sesuai keteria yang di tentukan
