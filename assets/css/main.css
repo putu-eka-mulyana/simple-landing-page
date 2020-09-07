@@ -320,6 +320,7 @@ body {
   font-family: "Poppins", Sans-serif;
   font-weight: 400;
   font-size: 20px;
+  margin-bottom: 10px;
 }
 .page-2-green-desc {
   color: #00a33e;
@@ -341,4 +342,115 @@ body {
   font-family: "Poppins", Sans-serif;
   align-self: center;
   margin-bottom: 0px;
+}
+.page-2-testimony-caption {
+  color: #484848;
+  font-size: 12px;
+}
+.page-2-box-img-chat {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.page-2-box-order {
+  background-color: #fff3b5;
+}
+.page-2-box-order > h2 {
+  font-family: "Poppins", Sans-serif;
+  font-weight: 600;
+  font-size: 24px;
+  text-align: center;
+  color: #ff0000;
+  margin-bottom: 0px;
+}
+.page-2-box-order > p {
+  color: #000000;
+  font-family: "Poppins", Sans-serif;
+  font-size: 20px;
+}
+.page-2-footer {
+  background-color: #bababa;
+  margin-top: 65px;
+}
+.page-2-footer > p:nth-child(odd) {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #000000;
+}
+.page-2-footer > p:nth-child(even) {
+  font-size: 16px;
+  line-height: 1.6;
+  font-family: "Roboto", Sans-serif;
+  font-weight: 400;
+  color: #000000;
+}
+.page-2-text-green {
+  color: #008000;
+  font-weight: bold;
+}
+.page-2-text-green {
+  color: #008000;
+  font-weight: bold;
+}
+.page-2-green-green {
+  color: #00a33e;
+  font-family: "Poppins", Sans-serif;
+  font-weight: bold;
+}
+.page-2-img-garansi {
+  display: flex;
+  justify-content: center;
+}
+.page-2-box-line-testimony {
+  text-align: center;
+  padding-top: 9px;
+  padding-bottom: 9px;
+}
+.page-2-box-line-testimony > span {
+  border-top-style: solid;
+  border-top-width: 4px;
+  border-top-color: #ff8800;
+  width: 7%;
+  display: inline-block;
+}
+.page-2-text-garansi {
+  color: #000000;
+  font-family: "Arial", Sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+.page-2-box-doctor {
+  background-color: #fafafc;
+  border-style: dashed;
+  border-color: #ff782f;
+  transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+  padding: 0px 0px 0px 0px;
+}
+.page-2-title-doctor {
+  font-family: "Roboto", Sans-serif;
+  font-weight: 600;
+  color: #000000;
+}
+.page-2-subtitle-doctor {
+  font-family: "Roboto", Sans-serif;
+  font-weight: 600;
+  color: #f29a57;
+  font-size: 24px;
+}
+.page-2-subtitle-doctor-desc {
+  font-family: "Roboto", Sans-serif;
+  font-weight: 400;
+  color: #484848;
+  font-size: 18px;
+}
+.img-doctor {
+  display: flex;
+  justify-content: center;
+}
+.img-doctor-name {
+  color: #484848;
+  font-family: "Roboto", Sans-serif;
+  font-weight: 600;
+  text-align: center;
+  font-size: 18px;
 }
