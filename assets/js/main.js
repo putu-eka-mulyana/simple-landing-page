@@ -21,8 +21,9 @@ $(document).ready(function () {
   setMetaUrl();
   getCountry();
   let device = getUA();
-  let url = GetFilename(document.referrer);
+  let url = getDomain(document.referrer);
   console.log(device);
+  console.log(url);
   if (
     device === "Android" ||
     device === "iPhone" ||
@@ -65,14 +66,15 @@ function getCountry() {
 }
 // untuk ngejek sumber pengunjung(belum selesai)
 // semuanya belum di proses, tunggu page 2 selesai baru bisa sesuai keteria yang di tentukan
-function GetFilename(url) {
+
+function getDomain(url) {
   if (url) {
-    var m = url.toString().match(/.*\/(.+?)\./);
-    if (m && m.length > 1) {
-      return m[1];
-    }
-  }
-  return "";
+    var match = /(?:https?:\/\/)?(?:\w+:\/)?[^:?#\/\s]*?([^.\s]+\.(?:[a-z]{2,}|co\.uk|org\.uk|ac\.uk|org\.au|com\.au))(?:[:?#\/]|$)/gi.exec(
+      url
+    );
+    let name = match[1].split(".");
+    return name ? name[0] : null;
+  } else return null;
 }
 function loadPage(page) {
   let xhttp = new XMLHttpRequest();
