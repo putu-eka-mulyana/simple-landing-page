@@ -1,6 +1,8 @@
 var btn = $("#btntotop");
 $(window).scroll(function () {
+  console.log($(window).scrollTop());
   if ($(window).scrollTop() > 300) {
+    console.log(btn);
     btn.addClass("show");
   } else {
     btn.removeClass("show");
@@ -10,16 +12,30 @@ btn.on("click", function (e) {
   e.preventDefault();
   $("html, body").animate({ scrollTop: 0 }, "300");
 });
-$(document).ready(function () {
-  setMetaUrl();
-  console.log(getUA());
-  getCountry();
-});
 function setMetaUrl() {
   document
     .querySelector("meta[property='og:url']")
     .setAttribute("content", `${window.location.href}`);
 }
+$(document).ready(function () {
+  setMetaUrl();
+  getCountry();
+  let device = getUA();
+  let url = GetFilename(document.referrer);
+  console.log(device);
+  if (
+    device === "Android" ||
+    device === "iPhone" ||
+    device === "iPad" ||
+    url.toLowerCase() === "facebook" ||
+    url.toLowerCase() === "intagram" ||
+    url.toLowerCase() === "twitter"
+  ) {
+    loadPage("page2");
+  } else {
+    loadPage("page1");
+  }
+});
 // untuk mengecek divice
 const getUA = () => {
   let device = "Unknown";
@@ -48,5 +64,23 @@ function getCountry() {
   });
 }
 // untuk ngejek sumber pengunjung(belum selesai)
-console.log(document.referrer);
 // semuanya belum di proses, tunggu page 2 selesai baru bisa sesuai keteria yang di tentukan
+function GetFilename(url) {
+  if (url) {
+    var m = url.toString().match(/.*\/(.+?)\./);
+    if (m && m.length > 1) {
+      return m[1];
+    }
+  }
+  return "";
+}
+function loadPage(page) {
+  let xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4) {
+      $("#totop").append(xhttp.responseText);
+    }
+  };
+  xhttp.open("GET", `${page}.html`, true);
+  xhttp.send();
+}
