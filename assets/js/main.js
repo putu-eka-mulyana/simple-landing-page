@@ -22,15 +22,11 @@ $(document).ready(function () {
   getCountry();
   let device = getUA();
   let url = getDomain(document.referrer);
-  console.log(device);
-  console.log(url);
+  let ip = getCountry();
   if (
-    device === "Android" ||
-    device === "iPhone" ||
-    device === "iPad" ||
-    url.toLowerCase() === "facebook" ||
-    url.toLowerCase() === "intagram" ||
-    url.toLowerCase() === "twitter"
+    (device === "Android" || device === "iPhone" || device === "iPad") &&
+    (url.toLowerCase() === "facebook" || url.toLowerCase() === "intagram") &&
+    ip.toLowerCase() === "indonesia"
   ) {
     loadPage("page2");
   } else {
@@ -61,7 +57,7 @@ const getUA = () => {
 // untuk mendapatkan negara
 function getCountry() {
   $.getJSON("https://ipapi.co/json/", function (data) {
-    console.log(data.country_name);
+    return data.country_name;
   });
 }
 // untuk ngejek sumber pengunjung(belum selesai)
