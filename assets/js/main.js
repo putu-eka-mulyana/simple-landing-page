@@ -1,8 +1,6 @@
 var btn = $("#btntotop");
 $(window).scroll(function () {
-  console.log($(window).scrollTop());
   if ($(window).scrollTop() > 300) {
-    console.log(btn);
     btn.addClass("show");
   } else {
     btn.removeClass("show");
@@ -19,19 +17,27 @@ function setMetaUrl() {
 }
 $(document).ready(function () {
   setMetaUrl();
-  getCountry();
   let device = getUA();
-  let url = getDomain(document.referrer);
-  let ip = getCountry();
-  if (
-    (device === "Android" || device === "iPhone" || device === "iPad") &&
-    (url.toLowerCase() === "facebook" || url.toLowerCase() === "intagram") &&
-    ip.toLowerCase() === "indonesia"
-  ) {
-    loadPage("page2");
-  } else {
-    loadPage("page1");
+  let url = "";
+  if (document.referrer !== "") {
+    url = getDomain(document.referrer);
   }
+  $.getJSON("https://ipapi.co/json/")
+    .then(function (data) {
+      let ip = data.country_name;
+      if (
+        (device === "Android" || device === "iPhone" || device === "iPad") &&
+        (url === "facebook" || url === "intagram") &&
+        ip.toLowerCase() === "indonesia"
+      ) {
+        loadPage("page2");
+      } else {
+        loadPage("page1");
+      }
+    })
+    .catch(function () {
+      loadPage("page1");
+    });
 });
 // untuk mengecek divice
 const getUA = () => {
@@ -55,21 +61,22 @@ const getUA = () => {
   return device;
 };
 // untuk mendapatkan negara
-function getCountry() {
-  $.getJSON("https://ipapi.co/json/", function (data) {
-    return data.country_name;
-  });
-}
+// function getCountry() {
+//   $.getJSON("https://ipapi.co/json/", function (data) {
+//     return data.country_name;
+//   });
+// }
 // untuk ngejek sumber pengunjung(belum selesai)
 // semuanya belum di proses, tunggu page 2 selesai baru bisa sesuai keteria yang di tentukan
 
 function getDomain(url) {
+  console.log("test");
   if (url) {
     var match = /(?:https?:\/\/)?(?:\w+:\/)?[^:?#\/\s]*?([^.\s]+\.(?:[a-z]{2,}|co\.uk|org\.uk|ac\.uk|org\.au|com\.au))(?:[:?#\/]|$)/gi.exec(
       url
     );
     let name = match[1].split(".");
-    return name ? name[0] : null;
+    return name ? name[0].toLowerCase() : null;
   } else return null;
 }
 function loadPage(page) {
